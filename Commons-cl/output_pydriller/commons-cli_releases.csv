@@ -1,0 +1,11 @@
+ordine,tag,commit_hash,commit_date,jdk,note
+1,cli-1.2,636fac44643c497373b747097bd46b457bddbc8e,2010-06-19T19:41:47+00:00,JDK 11,Release stabile; target Java storico adattato in build
+2,cli-1.3-RC1,c5d74a52c724693a8e80a0a11ddfe7f285985db3,2015-05-03T14:52:00+00:00,JDK 11,Release candidate (RC) inclusa per uniformita a 10 snapshot; target Java adattato
+3,cli-1.3,d33c73f9d8cd8c6ae93f016596aad11351a8afce,2015-05-09T18:00:48+00:00,JDK 11,Release stabile; target Java storico adattato in build
+4,cli-1.3.1,41d3dbf00f3e2041f5e407b9b96d8f048ab388d9,2015-06-17T19:09:27+00:00,JDK 11,Release stabile; target Java storico adattato in build
+5,cli-1.4-RC1,3f150ee61685fca466b38292144ce79d4755d749,2017-03-09T12:58:33+00:00,JDK 11,Release candidate (RC) inclusa per uniformita a 10 snapshot; target Java adattato
+6,cli-1.4,f7153c3c10cc8060d3858a6a90d7ddccd0b3533e,2017-03-13T09:44:19+00:00,JDK 11,Release stabile; target Java storico adattato in build
+7,commons-cli-1.5.0,e81a871025cd2dd5bc1d3b473c3c495533e7b8f4,2021-10-23T17:41:15-04:00,JDK 11,Release stabile; target Java storico adattato in build
+8,rel/commons-cli-1.6.0,0d29a55998aa52be8832497527e266630f97c371,2023-10-23T12:55:19-04:00,JDK 17,Release stabile
+9,rel/commons-cli-1.7.0,caed6714a73ce366aebccebf4a21e287d6d34ae0,2024-04-13T02:23:11+00:00,JDK 17,Release stabile
+10,rel/commons-cli-1.8.0,91369572408eff424ff5cec2d46dd9667ceba1b3,2024-05-19T14:45:29+00:00,JDK 17,Release stabile
