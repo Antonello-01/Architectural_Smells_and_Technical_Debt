@@ -1,0 +1,21 @@
+VERSIONI SCELTE DI THUMBNAILATOR
+
+0.4.1 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
+
+0.4.3 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
+
+0.4.5 — JDK 11
+
+0.4.7 — JDK 11
+
+0.4.8 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
+
+0.4.10 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
+
+0.4.12 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
+
+0.4.16 — JDK 17
+
+0.4.18 — JDK 17
+
+0.4.21 — JDK 17

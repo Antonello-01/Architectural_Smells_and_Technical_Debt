@@ -1,0 +1,11 @@
+ordine,tag,commit_hash,commit_date,jdk,note
+1,0.4.1,a732e9f2e59fa0da73e8a3c5d3ddb25b11bbc8d1,2012-04-03T02:14:21+09:00,JDK 11,Target 1.5 adattato temporaneamente a 1.7 in build
+2,0.4.3,a33325e345ba9ca49a2d32d9cd1d26ffaef12a77,2013-01-03T15:52:37+09:00,JDK 11,Target 1.5 adattato temporaneamente a 1.7 in build
+3,0.4.5,48290e77d7b30b74c601eb280edcac5dcd0c1e11,2013-06-30T18:43:42+09:00,JDK 11,
+4,0.4.7,0ee1140dedf827ca3727dde11daa1ead797e6564,2013-12-24T02:25:05+09:00,JDK 11,
+5,0.4.8,b6aa56bab1eecf9f47fab5805f3e3d00550295be,2014-12-01T23:16:01+09:00,JDK 11,Target 1.5 adattato temporaneamente a 1.7 in build
+6,0.4.10,aca59a868e3c8faef3f4eb864d03195e9060b253,2020-02-23T00:36:44+09:00,JDK 11,Target 1.5 adattato temporaneamente a 1.7 in build
+7,0.4.12,a2b0529ca23d162042ee9b5d73300ff3b4e1223e,2020-08-16T20:25:30+09:00,JDK 11,Target 1.5 adattato temporaneamente a 1.7 in build
+8,0.4.16,b97f8fba767a5a0b5378bdd9cb3c81f39b295b00,2022-01-02T22:04:06+09:00,JDK 17,
+9,0.4.18,3116eb424f89946949ca54fb46633c83906b0e32,2022-10-23T22:10:59+09:00,JDK 17,
+10,0.4.21,c9d99613878bbbf1f4d9369585b4cb5352c3b474,2025-10-01T02:13:09+09:00,JDK 17,
