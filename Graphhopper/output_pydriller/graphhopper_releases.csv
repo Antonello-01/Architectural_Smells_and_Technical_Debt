@@ -1,0 +1,11 @@
+ordine,tag,commit_hash,commit_date,jdk,note
+1,5.0,d12e315f431d749b7de52d885e28fe48e592169d,2022-03-23T10:26:49+01:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+2,5.1,81e1fca5541a5ad89eb3e5d05cd7b412a5d86566,2022-04-20T23:23:09+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+3,5.2,24f4c95bf57bf2c5c09fcfbffd1363dc8b38a5f3,2022-04-28T12:24:01+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+4,6.0,02cb7e28ca929fdfe7d905fdd14488d3996a75ad,2022-09-13T10:30:05+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+5,6.2,6d3da37960f56aa6b9c4b1ffd77f70ebebff8747,2022-10-23T20:44:37+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+6,7.0,b0a129cc0c7266c0299854f0f73335d83ef4ec52,2023-03-09T21:43:27+01:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+7,8.0,1e224ae6bb1807ebc5037fb8de07c4f7cfaee749,2023-10-17T11:52:48+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+8,9.1,73e6b7cc3ca163ce0b53692f7cd732dba170bfce,2024-05-04T23:47:26+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+9,10.2,d8a531a963ce874276af4aa6a4a1f4383ea9b3fa,2025-01-20T09:35:03+01:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)
+10,11.1,ebb578f4e94db72e82f2f8d3bc69417758e16e1c,2026-09-29T14:58:19+02:00,JDK 17,Release stabile; moduli backend/core (esclusi web-bundle e web)

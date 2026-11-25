@@ -1,0 +1,25 @@
+RELEASE SCELTE PER graphhopper
+
+5.0 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+5.1 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+5.2 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+6.0 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+6.2 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+7.0 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+8.0 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+9.1 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+10.2 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+11.1 — JDK 17 (esclusi moduli frontend/bundle web-bundle e web)
+
+I moduli (web-bundle e web) sono le parti che assemblano il server web e l'interfaccia frontend delle mappe (e web dipende da web-bundle).
+
+Vengono esclusi perché la build si bloccava sulla fase frontend/npm (npm pack e successiva estrazione del pacchetto .tgz mancante), impedendo di completare la compilazione, mentre tutti i moduli Java core/backend sono già stati compilati e salvati correttamente.

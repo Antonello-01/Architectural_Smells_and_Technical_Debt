@@ -1,4 +1,4 @@
-VERSIONI SCELTE DI THUMBNAILATOR
+RELEASE SCELTE DI THUMBNAILATOR
 
 0.4.1 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.7)
 

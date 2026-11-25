@@ -1,4 +1,4 @@
-VERSIONI SCELTE DI GSON
+RELEASE SCELTE DI GSON
 
 gson-parent-2.4 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.6)
 
