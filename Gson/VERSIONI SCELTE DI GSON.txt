@@ -1,0 +1,21 @@
+VERSIONI SCELTE DI GSON
+
+gson-parent-2.4 — JDK 11 (con adattamento temporaneo del target da 1.5 a 1.6)
+
+gson-parent-2.6 — JDK 11
+
+gson-parent-2.7 — JDK 11
+
+gson-parent-2.8.0 — JDK 11
+
+gson-parent-2.8.9 — JDK 11
+
+gson-parent-2.9.1 — JDK 17
+
+gson-parent-2.10.1 — JDK 17
+
+gson-parent-2.12.0 — JDK 17
+
+gson-parent-2.13.2 — JDK 17
+
+gson-parent-2.15.0 — JDK 17
