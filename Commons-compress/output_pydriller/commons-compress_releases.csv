@@ -1,0 +1,11 @@
+ordine,tag,commit_hash,commit_date,jdk,note
+1,commons-compress-1.26.1-RC1,81ac94151eedc61c2131239362a051e30c5e9e59,2024-03-05T17:15:14-05:00,JDK 11,Ordine 83; build OK con JDK 11
+2,rel/commons-compress-1.26.1,81ac94151eedc61c2131239362a051e30c5e9e59,2024-03-05T17:15:14-05:00,JDK 11,Ordine 84; build OK con JDK 11
+3,commons-compress-1.26.2-RC1,95727006cac0892c654951c4e7f1db142462f22a,2024-05-18T15:31:24+00:00,JDK 11,Ordine 85; build OK con JDK 11
+4,rel/commons-compress-1.26.2,95727006cac0892c654951c4e7f1db142462f22a,2024-05-18T15:31:24+00:00,JDK 11,Ordine 86; build OK con JDK 11
+5,commons-compress-1.27.0-RC1,88efab75016ede0a4d021cbe8d0de0c7fdbf1d7d,2024-08-03T21:39:22+00:00,JDK 11,Ordine 87; build OK con JDK 11
+6,rel/commons-compress-1.27.0,88efab75016ede0a4d021cbe8d0de0c7fdbf1d7d,2024-08-03T21:39:22+00:00,JDK 11,Ordine 88; build OK con JDK 11
+7,commons-compress-1.27.1-RC1,8de4d85b09a5d60e03191c0d362797de253a3516,2024-08-17T00:26:51+00:00,JDK 11,Ordine 89; build OK con JDK 11
+8,rel/commons-compress-1.27.1,8de4d85b09a5d60e03191c0d362797de253a3516,2024-08-17T00:26:51+00:00,JDK 11,Ordine 90; build OK con JDK 11
+9,commons-compress-1.28.0-RC1,852d9c23b94127feafc1649d9c7f13d4df338845,2025-07-26T20:43:38+00:00,JDK 11,Ordine 91; build OK con JDK 11
+10,rel/commons-compress-1.28.0,852d9c23b94127feafc1649d9c7f13d4df338845,2025-07-26T20:43:38+00:00,JDK 11,Ordine 92; build OK con JDK 11
