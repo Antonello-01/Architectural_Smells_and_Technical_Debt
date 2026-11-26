@@ -1,0 +1,10 @@
+project,from_tag,to_tag,from_date,to_date,jdk_to_tag,commits,distinct_authors,files_touched,java_files_touched,lines_added,lines_deleted,code_churn
+commons-validator,VALIDATOR_1_4_1,VALIDATOR_1_5_0,2015-01-13T19:44:26+00:00,2015-11-25T09:23:13+00:00,,0,0,0,0,0,0,0
+commons-validator,VALIDATOR_1_5_0,VALIDATOR_1_5_1,2015-11-25T09:23:13+00:00,2016-04-30T08:27:36+00:00,,0,0,0,0,0,0,0
+commons-validator,VALIDATOR_1_5_1,VALIDATOR_1_6,2016-04-30T08:27:36+00:00,2017-02-20T10:09:44+00:00,,0,0,0,0,0,0,0
+commons-validator,VALIDATOR_1_6,VALIDATOR_1_7,2017-02-20T10:09:44+00:00,2020-08-03T17:07:31+01:00,,0,0,0,0,0,0,0
+commons-validator,VALIDATOR_1_7,rel/commons-validator-1.8.0,2020-08-03T17:07:31+01:00,2023-12-02T10:17:23-05:00,,0,0,0,0,0,0,0
+commons-validator,rel/commons-validator-1.8.0,rel/commons-validator-1.9.0,2023-12-02T10:17:23-05:00,2024-05-25T20:34:21+00:00,,223,5,493,348,3780,2906,6686
+commons-validator,rel/commons-validator-1.9.0,rel/commons-validator-1.10.0,2024-05-25T20:34:21+00:00,2025-07-06T12:10:29+00:00,,433,9,1214,792,6411,5962,12373
+commons-validator,rel/commons-validator-1.10.0,rel/commons-validator-1.10.1,2025-07-06T12:10:29+00:00,2025-11-14T15:41:07+00:00,,100,4,132,30,619,354,973
+commons-validator,rel/commons-validator-1.10.1,rel/commons-validator-1.11.0,2025-11-14T15:41:07+00:00,2026-07-28T01:26:02+00:00,,313,8,660,420,5338,3097,8435
