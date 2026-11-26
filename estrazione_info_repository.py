@@ -1,171 +1,207 @@
+import os
 import re
+import subprocess
+import time
 from pathlib import Path
+from typing import Optional
 import pandas as pd
-from pydriller import Git, Repository
 
 # --- MODIFICA MANUALE PER OGNI REPOSITORY ---
-REPO_PATH = r"/Users/antonellomaddalena/progetto_tamburri/JUnit4/junit4"
-OUT_DIR = Path(r"/Users/antonellomaddalena/progetto_tamburri/JUnit4/estrazione")
+REPO_PATH = Path(r"/Users/antonellomaddalena/progetto_tamburri/Commons-validator/commons-validator")
+EXTRACTION_DIR = Path(r"/Users/antonellomaddalena/progetto_tamburri/Commons-validator/estrazione")
+BUILD_OUT_DIR = Path(r"/Users/antonellomaddalena/progetto_tamburri/Commons-validator/build_logs")
 
-# Se vuoto, usa automaticamente il nome della cartella in REPO_PATH (es. "junit4")
+# Se vuoto, prova a ricavarlo dal nome della cartella di REPO_PATH
 PROJECT_NAME = ""
 
-# Numero massimo di ultime release da estrarre automaticamente (es. 10)
-NUM_RELEASES = 10
+# Percorsi JAVA_HOME disponibili (aggiorna jdk8 con l'output di: /usr/libexec/java_home -v 1.8)
+JDK_CANDIDATES: dict[str, Path] = {
+    "jdk8": Path("/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"),
+    "jdk17": Path("/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home"),
+}
 
-# Valore predefinito per jdk sulle release rilevate automaticamente
-DEFAULT_JDK = ""
+# Ordine con cui provare i JDK per ogni release che ha pom.xml
+JDK_TRY_ORDER: list[str] = ["jdk8", "jdk17"]
 
-# Lascia [] per estrarre sempre le ultime NUM_RELEASES release dal repository Git.
-# Se in un caso particolare vuoi forzare una lista specifica, inseriscila qui:
-# [{"tag": "r4.13.2", "jdk": "JDK 8", "note": ""}]
-MANUAL_RELEASES: list[dict] = []
+# Comando di build (-e mostra i dettagli dell'errore nei log in caso di fallimento)
+BUILD_CMD = ["mvn", "-B", "-e", "test-compile", "-DskipTests"]
+
+# Pulisce modifiche locali e file non tracciati (es. target/) prima di ogni checkout
+CLEAN_BEFORE_CHECKOUT = True
 # --------------------------------------------
 
 
-def get_last_release_tags(git_repo: Git, limit: int = 10, default_jdk: str = "") -> list[dict]:
-    """Estrae le ultime `limit` release dal repository Git in base alla data del commit."""
-    repo = git_repo.repo
-    candidates = []
+def sanitize_filename_part(value: str) -> str:
+    """Rende sicuro un nome (es. un tag Git con '/') per usarlo in un nome file."""
+    return re.sub(r"[^A-Za-z0-9._-]", "_", value)
 
-    for tag_ref in repo.tags:
-        tag_name = tag_ref.name
 
-        # Esclude tag tipici di pre-release, beta, release candidate o snapshot
-        if re.search(r"(alpha|beta|rc|snapshot|m\d+|b\d+)", tag_name, re.IGNORECASE):
-            continue
+def make_env_for_jdk(java_home: Optional[Path]) -> dict[str, str]:
+    env = os.environ.copy()
+    if java_home is not None:
+        env["JAVA_HOME"] = str(java_home)
+        env["PATH"] = f"{java_home / 'bin'}:{env.get('PATH', '')}"
+    return env
 
-        commit = git_repo.get_commit_from_tag(tag_name)
-        if commit is None:
-            # Fallback diretto sul commit del tag se get_commit_from_tag non lo risolve
-            commit_hash = tag_ref.commit.hexsha
-            commit = git_repo.get_commit(commit_hash)
 
-        if commit is not None:
-            candidates.append({
-                "tag": tag_name,
-                "jdk": default_jdk,
-                "note": "auto-selected (last releases)",
-                "_date": commit.committer_date,
-            })
+def run_cmd(
+    cmd: list[str],
+    cwd: Path,
+    log_file: Optional[Path] = None,
+    env: Optional[dict[str, str]] = None,
+    append: bool = False,
+) -> tuple[int, float]:
+    start = time.perf_counter()
+    proc = subprocess.run(
+        cmd,
+        cwd=str(cwd),
+        env=env,
+        text=True,
+        capture_output=True,
+    )
+    elapsed = round(time.perf_counter() - start, 2)
 
-    # Ordina dal commit più vecchio al più recente e prende le ultime `limit` release
-    candidates.sort(key=lambda item: item["_date"])
-    selected = candidates[-limit:] if limit > 0 else candidates
+    if log_file is not None:
+        log_file.parent.mkdir(parents=True, exist_ok=True)
+        block = (
+            f"CMD: {' '.join(cmd)}\n"
+            f"JAVA_HOME: {env.get('JAVA_HOME', '') if env else ''}\n"
+            f"RETURN_CODE: {proc.returncode}\n"
+            f"ELAPSED_SEC: {elapsed}\n\n"
+            f"--- STDOUT ---\n{proc.stdout}\n\n--- STDERR ---\n{proc.stderr}\n"
+            f"{'=' * 60}\n"
+        )
+        mode = "a" if append else "w"
+        with log_file.open(mode, encoding="utf-8") as f:
+            f.write(block)
 
-    return [
-        {"tag": item["tag"], "jdk": item["jdk"], "note": item["note"]}
-        for item in selected
-    ]
+    return proc.returncode, elapsed
 
 
 def main() -> None:
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
-    project_name = PROJECT_NAME.strip() or Path(REPO_PATH).name
+    project_name = PROJECT_NAME.strip() or REPO_PATH.name
+    releases_csv = EXTRACTION_DIR / f"{project_name}_releases.csv"
 
-    git_repo = Git(REPO_PATH)
+    if not releases_csv.exists():
+        raise FileNotFoundError(f"File release non trovato: {releases_csv}")
 
-    if MANUAL_RELEASES:
-        releases_to_use = MANUAL_RELEASES
-    else:
-        releases_to_use = get_last_release_tags(
-            git_repo=git_repo,
-            limit=NUM_RELEASES,
-            default_jdk=DEFAULT_JDK,
+    BUILD_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    logs_dir = BUILD_OUT_DIR / f"{project_name}_logs"
+    logs_dir.mkdir(parents=True, exist_ok=True)
+
+    available_jdks: dict[str, Path] = {
+        name: path for name, path in JDK_CANDIDATES.items() if path.exists()
+    }
+    ordered_jdks = [name for name in JDK_TRY_ORDER if name in available_jdks]
+
+    if not ordered_jdks:
+        raise RuntimeError(
+            "Nessun JDK valido trovato in JDK_CANDIDATES. Controlla i percorsi con '/usr/libexec/java_home -V'."
         )
 
-    if len(releases_to_use) < 2:
-        raise ValueError(
-            f"Trovate solo {len(releases_to_use)} release valide in '{project_name}': "
-            "ne servono almeno 2 per calcolare gli intervalli evolutivi."
-        )
+    base_env = make_env_for_jdk(None)
+    releases_df = pd.read_csv(releases_csv).sort_values("ordine")
+    results = []
 
-    release_rows = []
-    for rel in releases_to_use:
-        tag = rel["tag"]
-        commit = git_repo.get_commit_from_tag(tag)
-        if commit is None:
-            raise ValueError(f"Tag '{tag}' non trovato nel repository '{REPO_PATH}'.")
+    for _, row in releases_df.iterrows():
+        ordine = int(row["ordine"])
+        tag = str(row["tag"])
+        commit_hash = str(row["commit_hash"])
+        safe_tag = sanitize_filename_part(tag)
+        log_path = logs_dir / f"{ordine:02d}_{safe_tag}.log"
 
-        release_rows.append({
+        if CLEAN_BEFORE_CHECKOUT:
+            run_cmd(["git", "reset", "--hard", "HEAD"], cwd=REPO_PATH, env=base_env)
+            run_cmd(["git", "clean", "-fd"], cwd=REPO_PATH, env=base_env)
+
+        print(f"[{ordine}/{len(releases_df)}] Checkout {tag} ({commit_hash[:8]})...")
+        co_code, _ = run_cmd(["git", "checkout", "--detach", commit_hash], cwd=REPO_PATH, env=base_env)
+
+        if co_code != 0:
+            results.append({
+                "project": project_name,
+                "ordine": ordine,
+                "tag": tag,
+                "commit_hash": commit_hash,
+                "checkout_ok": False,
+                "build_ok": False,
+                "jdk_used": "",
+                "status_reason": "checkout_failed",
+                "build_seconds": 0.0,
+                "log_file": str(log_path),
+            })
+            print(f"  -> Errore nel checkout di {tag}")
+            continue
+
+        pom_file = REPO_PATH / "pom.xml"
+        if not pom_file.exists():
+            log_path.write_text(
+                f"SKIPPED: pom.xml non presente nella root per il tag {tag} ({commit_hash}).\n",
+                encoding="utf-8",
+            )
+            results.append({
+                "project": project_name,
+                "ordine": ordine,
+                "tag": tag,
+                "commit_hash": commit_hash,
+                "checkout_ok": True,
+                "build_ok": False,
+                "jdk_used": "",
+                "status_reason": "missing_pom",
+                "build_seconds": 0.0,
+                "log_file": str(log_path),
+            })
+            print(f"  -> Saltata: pom.xml assente su {tag} | Log: {log_path.name}")
+            continue
+
+        build_ok = False
+        jdk_used = ""
+        total_elapsed = 0.0
+
+        for idx, jdk_name in enumerate(ordered_jdks):
+            jdk_path = available_jdks[jdk_name]
+            jdk_env = make_env_for_jdk(jdk_path)
+            print(f"  -> Build con {jdk_name}: {' '.join(BUILD_CMD)}")
+            build_code, elapsed = run_cmd(
+                BUILD_CMD,
+                cwd=REPO_PATH,
+                log_file=log_path,
+                env=jdk_env,
+                append=(idx > 0),
+            )
+            total_elapsed = round(total_elapsed + elapsed, 2)
+
+            if build_code == 0:
+                build_ok = True
+                jdk_used = jdk_name
+                break
+
+        status_reason = "ok" if build_ok else "build_failed"
+        results.append({
             "project": project_name,
+            "ordine": ordine,
             "tag": tag,
-            "commit_hash": commit.hash,
-            "commit_date": commit.committer_date.isoformat(),
-            "_dt": commit.committer_date,
-            "jdk": rel.get("jdk", DEFAULT_JDK),
-            "note": rel.get("note", ""),
+            "commit_hash": commit_hash,
+            "checkout_ok": True,
+            "build_ok": build_ok,
+            "jdk_used": jdk_used,
+            "status_reason": status_reason,
+            "build_seconds": total_elapsed,
+            "log_file": str(log_path),
         })
 
-    # Ordina sempre cronologicamente in base alla data del commit
-    release_rows.sort(key=lambda r: r["_dt"])
-    for idx, row in enumerate(release_rows, start=1):
-        row["ordine"] = idx
+        if build_ok:
+            print(f"  -> Build OK con {jdk_used} ({total_elapsed}s) | Log: {log_path.name}")
+        else:
+            print(f"  -> Build FALLITA su {ordered_jdks} ({total_elapsed}s) | Log: {log_path.name}")
 
-    releases_df = pd.DataFrame([
-        {k: v for k, v in row.items() if k != "_dt"}
-        for row in release_rows
-    ])
-    releases_csv = OUT_DIR / f"{project_name}_releases.csv"
-    releases_df.to_csv(releases_csv, index=False, encoding="utf-8")
+    status_df = pd.DataFrame(results)
+    status_csv = BUILD_OUT_DIR / f"{project_name}_build_status.csv"
+    status_df.to_csv(status_csv, index=False, encoding="utf-8")
 
-    interval_rows = []
-    for i in range(len(release_rows) - 1):
-        start_rel = release_rows[i]
-        end_rel = release_rows[i + 1]
-
-        commit_count = 0
-        authors = set()
-        total_files_touched = 0
-        java_files_touched = 0
-        lines_added = 0
-        lines_deleted = 0
-
-        # PyDriller: from_commit è esclusivo, to_commit è inclusivo
-        repo_miner = Repository(
-            path_to_repo=REPO_PATH,
-            from_commit=start_rel["commit_hash"],
-            to_commit=end_rel["commit_hash"],
-        )
-
-        for commit in repo_miner.traverse_commits():
-            commit_count += 1
-            if commit.author and commit.author.email:
-                authors.add(commit.author.email.lower())
-
-            for mod in commit.modified_files:
-                total_files_touched += 1
-                filename = mod.new_path or mod.old_path or ""
-                if filename.endswith(".java"):
-                    java_files_touched += 1
-                lines_added += mod.added_lines or 0
-                lines_deleted += mod.deleted_lines or 0
-
-        interval_rows.append({
-            "project": project_name,
-            "from_tag": start_rel["tag"],
-            "to_tag": end_rel["tag"],
-            "from_date": start_rel["commit_date"],
-            "to_date": end_rel["commit_date"],
-            "jdk_to_tag": end_rel["jdk"],
-            "commits": commit_count,
-            "distinct_authors": len(authors),
-            "files_touched": total_files_touched,
-            "java_files_touched": java_files_touched,
-            "lines_added": lines_added,
-            "lines_deleted": lines_deleted,
-            "code_churn": lines_added + lines_deleted,
-        })
-
-    intervals_df = pd.DataFrame(interval_rows)
-    intervals_csv = OUT_DIR / f"{project_name}_evolution_intervals.csv"
-    intervals_df.to_csv(intervals_csv, index=False, encoding="utf-8")
-
-    print(f"Completato per '{project_name}' ({len(release_rows)} release). File salvati in: {OUT_DIR}")
-    print("\n--- Ultime release selezionate ---")
-    print(releases_df[["ordine", "tag", "commit_date", "jdk"]])
-    print("\n--- Intervalli estratti ---")
-    print(intervals_df[["from_tag", "to_tag", "commits", "java_files_touched", "code_churn"]])
+    print("\n--- Riepilogo build ---")
+    print(status_df[["ordine", "tag", "checkout_ok", "build_ok", "jdk_used", "status_reason", "build_seconds"]])
+    print(f"\nReport salvato in: {status_csv}")
 
 
 if __name__ == "__main__":
