@@ -1,0 +1,11 @@
+ordine,tag,commit_hash,commit_date,jdk,note
+1,rel/commons-lang-3.13.0,bcc10b359318397a4d12dbaef22b101725bc6323,2023-07-23T15:40:39-04:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+2,rel/commons-lang-3.14.0,c8774fa74adbbbcd4e5f915ab6bc3aa10d877419,2023-11-18T09:54:12-05:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+3,rel/commons-lang-3.15.0,535ec32c680a6581739a41bf97ecb8b8718c73b8,2024-07-13T22:44:50+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+4,rel/commons-lang-3.16.0,6a2a10d88885343cfe37c1d9fa42ac5edda7cab5,2024-08-01T12:16:40+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+5,rel/commons-lang-3.17.0,29ccc7665f3bc5d84155a3092ab2209a053324e6,2024-08-24T18:59:45+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+6,rel/commons-lang-3.18.0,5b59487808d0b86a94ad7a1ebd4c200e09b7be09,2025-07-06T17:31:40+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+7,rel/commons-lang-3.19.0,3d1eb7718a79d18cc2ab57e7ab3b894426ec7c2f,2025-09-19T22:17:27+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+8,rel/commons-lang-3.20.0,598dfc163b8b410fb3bb8794521206ec8dcec82a,2025-11-12T19:55:59+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+9,rel/commons-lang-3.21.0,155db038d73fe0ea49612d42ae70f6e48ee3ebb9,2026-09-25T19:56:43+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
+10,rel/commons-lang-3.22.0,562de6e40e0742f471adefcf05bd4b273d995028,2026-11-08T14:07:59+00:00,JDK 17,Release stabile; target bytecode 1.8 compilato con JDK 17
