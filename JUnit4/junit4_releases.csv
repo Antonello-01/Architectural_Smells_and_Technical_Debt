@@ -1,0 +1,11 @@
+project,tag,commit_hash,commit_date,jdk,note,ordine
+junit4,r4.8,5a3a326096cf65a58272ee89a5ef1c164cfd9d33,2009-11-30T23:08:09-05:00,,auto-selected (last releases),1
+junit4,r4.8.1,832bb8322f2ca09af52769a0198b276269b53988,2009-12-08T10:15:44-05:00,,auto-selected (last releases),2
+junit4,r4.8.2,a30e87b6ac67f14a42b97d427bb1c8c6ba18cd87,2010-04-08T13:04:17-04:00,jdk8,auto-selected (last releases),3
+junit4,r4.9,61f06547599bb6b98bca99d5bc457eb20bc17cab,2011-08-22T14:20:52-04:00,,auto-selected (last releases),4
+junit4,r4.10,45a44647e7306262162e1346b750c3209019f2e1,2011-09-29T14:18:35-04:00,,auto-selected (last releases),5
+junit4,r4.11,c2e4d911fadfbd64444fb285342a8f1b72336169,2012-11-13T12:10:09-08:00,,auto-selected (last releases),6
+junit4,r4.12,64155f8a9babcfcf4263cf4d08253a1556e75481,2014-12-04T11:13:56-05:00,jdk8,auto-selected (last releases),7
+junit4,r4.13,038f7518fc1018b26df608e3e5dce6db4611be29,2020-01-01T16:43:55+01:00,jdk8,auto-selected (last releases),8
+junit4,r4.13.1,1b683f4ec07bcfa40149f086d32240f805487e66,2020-10-11T17:18:49+02:00,jdk8,auto-selected (last releases),9
+junit4,r4.13.2,05fe2a64f59127c02135be22f416e91260d6ede6,2021-02-13T17:30:49+01:00,jdk8,auto-selected (last releases),10
