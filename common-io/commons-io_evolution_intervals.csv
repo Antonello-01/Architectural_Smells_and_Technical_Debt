@@ -1,0 +1,10 @@
+project,from_tag,to_tag,from_date,to_date,jdk_to_tag,commits,distinct_authors,files_touched,java_files_touched,lines_added,lines_deleted,code_churn
+commons-io,rel/commons-io-2.15.0,rel/commons-io-2.15.1,2023-10-21T14:50:14-04:00,2023-11-24T10:56:30-05:00,,76,4,195,130,1494,1269,2763
+commons-io,rel/commons-io-2.15.1,rel/commons-io-2.16.0,2023-11-24T10:56:30-05:00,2024-03-25T13:06:17+00:00,,285,11,571,413,7764,4211,11975
+commons-io,rel/commons-io-2.16.0,rel/commons-io-2.16.1,2024-03-25T13:06:17+00:00,2024-04-05T00:17:54+00:00,,42,4,58,33,917,1231,2148
+commons-io,rel/commons-io-2.16.1,rel/commons-io-2.17.0,2024-04-05T00:17:54+00:00,2024-09-15T15:23:09+00:00,,288,8,524,340,4764,1632,6396
+commons-io,rel/commons-io-2.17.0,rel/commons-io-2.18.0,2024-09-15T15:23:09+00:00,2024-11-16T15:09:59+00:00,,162,5,379,267,5313,2172,7485
+commons-io,rel/commons-io-2.18.0,rel/commons-io-2.19.0,2024-11-16T15:09:59+00:00,2025-04-08T22:01:47+00:00,,270,4,733,496,6112,2690,8802
+commons-io,rel/commons-io-2.19.0,rel/commons-io-2.20.0,2025-04-08T22:01:47+00:00,2025-07-14T21:25:43+00:00,,144,9,1256,1145,5325,4582,9907
+commons-io,rel/commons-io-2.20.0,rel/commons-io-2.21.0,2025-07-14T21:25:43+00:00,2025-11-04T20:23:47+00:00,,186,7,462,331,10185,5095,15280
+commons-io,rel/commons-io-2.21.0,rel/commons-io-2.22.0,2025-11-04T20:23:47+00:00,2026-04-19T11:39:35+00:00,,250,7,656,479,8970,4374,13344

@@ -1,0 +1,11 @@
+project,tag,commit_hash,commit_date,jdk,note,ordine
+commons-io,rel/commons-io-2.15.0,6bb8020d40f1a4b947ff26949843def5d60292d0,2023-10-21T14:50:14-04:00,,auto-selected (last releases),1
+commons-io,rel/commons-io-2.15.1,dc51644d5adbb0c461efb58380ec51fbca10005d,2023-11-24T10:56:30-05:00,,auto-selected (last releases),2
+commons-io,rel/commons-io-2.16.0,c0d44bcc782372980c9e6881537c801e6d84219f,2024-03-25T13:06:17+00:00,,auto-selected (last releases),3
+commons-io,rel/commons-io-2.16.1,290d72eda9152d1e11b79d48453908ff3f6b9897,2024-04-05T00:17:54+00:00,,auto-selected (last releases),4
+commons-io,rel/commons-io-2.17.0,7b5c3ec3ddcedeb764fa79f29e9baefdd3444163,2024-09-15T15:23:09+00:00,,auto-selected (last releases),5
+commons-io,rel/commons-io-2.18.0,be0b1eaea246aba841510807484a6ddd6ee5fcdb,2024-11-16T15:09:59+00:00,,auto-selected (last releases),6
+commons-io,rel/commons-io-2.19.0,2186f41bbae123ed355a77137e9be10c0b4c4630,2025-04-08T22:01:47+00:00,,auto-selected (last releases),7
+commons-io,rel/commons-io-2.20.0,c224bce839494ed651e5eba320b27c73ce8d804e,2025-07-14T21:25:43+00:00,,auto-selected (last releases),8
+commons-io,rel/commons-io-2.21.0,54073d3b5fdd2985b98a48040ede95eb59c7ee53,2025-11-04T20:23:47+00:00,,auto-selected (last releases),9
+commons-io,rel/commons-io-2.22.0,c14acc16f73e44a75b2062b17aacb26c4feda746,2026-04-19T11:39:35+00:00,,auto-selected (last releases),10
