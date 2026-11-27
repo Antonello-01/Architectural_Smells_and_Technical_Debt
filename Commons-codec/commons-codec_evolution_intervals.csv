@@ -1,0 +1,10 @@
+project,from_tag,to_tag,from_date,to_date,jdk_to_tag,commits,distinct_authors,files_touched,java_files_touched,lines_added,lines_deleted,code_churn
+commons-codec,rel/commons-codec-1.17.0,rel/commons-codec-1.17.1,2024-04-20T18:09:25+00:00,2024-07-12T16:18:11+00:00,,73,3,97,31,655,656,1311
+commons-codec,rel/commons-codec-1.17.1,rel/commons-codec-1.17.2,2024-07-12T16:18:11+00:00,2024-12-28T14:15:26+00:00,,143,6,533,265,1338,844,2182
+commons-codec,rel/commons-codec-1.17.2,rel/commons-codec-1.18.0,2024-12-28T14:15:26+00:00,2025-01-27T09:14:30-05:00,,41,3,64,10,931,874,1805
+commons-codec,rel/commons-codec-1.18.0,rel/commons-codec-1.19.0,2025-01-27T09:14:30-05:00,2025-07-19T17:18:27+00:00,,169,5,444,297,2446,2169,4615
+commons-codec,rel/commons-codec-1.19.0,rel/commons-codec-1.20.0,2025-07-19T17:18:27+00:00,2025-11-02T20:02:56+00:00,,104,3,243,142,4462,2175,6637
+commons-codec,rel/commons-codec-1.20.0,rel/commons-codec-1.21.0,2025-11-02T20:02:56+00:00,2026-01-23T14:16:37+00:00,,86,5,205,122,2335,2101,4436
+commons-codec,rel/commons-codec-1.21.0,rel/commons-codec-1.22.0,2026-01-23T14:16:37+00:00,2026-04-19T11:12:11+00:00,,122,5,232,172,4788,2389,7177
+commons-codec,rel/commons-codec-1.22.0,rel/commons-codec-1.22.1,2026-04-19T11:12:11+00:00,2026-07-27T00:11:20+00:00,,70,3,234,164,1807,1131,2938
+commons-codec,rel/commons-codec-1.22.1,rel/commons-codec-1.23.0,2026-07-27T00:11:20+00:00,2026-10-10T08:00:51-04:00,,86,5,291,222,7778,2252,10030

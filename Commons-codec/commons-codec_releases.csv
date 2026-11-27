@@ -1,0 +1,11 @@
+project,tag,commit_hash,commit_date,jdk,note,ordine
+commons-codec,rel/commons-codec-1.17.0,5d809fe3d729bde9b507a51d2b2ed659da053692,2024-04-20T18:09:25+00:00,,auto-selected (last releases),1
+commons-codec,rel/commons-codec-1.17.1,965109705c5236b05011e1c45f47d991abfa521e,2024-07-12T16:18:11+00:00,,auto-selected (last releases),2
+commons-codec,rel/commons-codec-1.17.2,19626132f74dc16dd4548f838d1fded1da5285a2,2024-12-28T14:15:26+00:00,,auto-selected (last releases),3
+commons-codec,rel/commons-codec-1.18.0,5f76abb946164b943bc2cf367bc1d70b8f6e70d1,2025-01-27T09:14:30-05:00,,auto-selected (last releases),4
+commons-codec,rel/commons-codec-1.19.0,351cb22e1e1948aaabb39a463dce631bea156125,2025-07-19T17:18:27+00:00,,auto-selected (last releases),5
+commons-codec,rel/commons-codec-1.20.0,b20db1f1fa6ee7b0536f6a25c9c33f8289c22098,2025-11-02T20:02:56+00:00,,auto-selected (last releases),6
+commons-codec,rel/commons-codec-1.21.0,91c44048f2751ef89567cd50ff04851da4f56e3f,2026-01-23T14:16:37+00:00,,auto-selected (last releases),7
+commons-codec,rel/commons-codec-1.22.0,81a6295f071df5819893422a397d94bc396f2edd,2026-04-19T11:12:11+00:00,,auto-selected (last releases),8
+commons-codec,rel/commons-codec-1.22.1,dc8f6c832a30f524bf12a5ae7ab013e4ad7c088f,2026-07-27T00:11:20+00:00,,auto-selected (last releases),9
+commons-codec,rel/commons-codec-1.23.0,1147e788058ee67509616903cbe2ddd149e02a04,2026-10-10T08:00:51-04:00,,auto-selected (last releases),10
