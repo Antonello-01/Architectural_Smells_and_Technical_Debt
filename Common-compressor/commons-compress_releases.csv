@@ -1,0 +1,11 @@
+project,tag,commit_hash,commit_date,jdk,note,ordine
+commons-compress,rel/1.22,5183d0b08c0897e6f0c41a038487b7c795136425,2022-10-25T14:33:45-05:00,,auto-selected (last releases),1
+commons-compress,rel/commons-compress-1.23.0,b19df3e5b9a85000cf46be3afd998fc58c0ea538,2023-03-18T13:33:50-04:00,,auto-selected (last releases),2
+commons-compress,rel/commons-compress-1.24.0,e52eabe9c0eb47b436e873ad7cb83fe737164dec,2023-09-04T08:38:08-04:00,,auto-selected (last releases),3
+commons-compress,rel/commons-compress-1.25.0,38dec7fb4690c023ef0af9661e0e1ae4f254a769,2023-11-12T17:09:27-05:00,,auto-selected (last releases),4
+commons-compress,rel/commons-compress-1.26.0,acaf5642b1e16d872870a4dc4618e46ccd349493,2024-02-17T18:43:57-05:00,,auto-selected (last releases),5
+commons-compress,rel/commons-compress-1.26.1,81ac94151eedc61c2131239362a051e30c5e9e59,2024-03-05T17:15:14-05:00,,auto-selected (last releases),6
+commons-compress,rel/commons-compress-1.26.2,95727006cac0892c654951c4e7f1db142462f22a,2024-05-18T15:31:24+00:00,,auto-selected (last releases),7
+commons-compress,rel/commons-compress-1.27.0,88efab75016ede0a4d021cbe8d0de0c7fdbf1d7d,2024-08-03T21:39:22+00:00,,auto-selected (last releases),8
+commons-compress,rel/commons-compress-1.27.1,8de4d85b09a5d60e03191c0d362797de253a3516,2024-08-17T00:26:51+00:00,,auto-selected (last releases),9
+commons-compress,rel/commons-compress-1.28.0,852d9c23b94127feafc1649d9c7f13d4df338845,2025-07-26T20:43:38+00:00,,auto-selected (last releases),10

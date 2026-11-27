@@ -1,0 +1,10 @@
+project,from_tag,to_tag,from_date,to_date,jdk_to_tag,commits,distinct_authors,files_touched,java_files_touched,lines_added,lines_deleted,code_churn
+commons-compress,rel/1.22,rel/commons-compress-1.23.0,2022-10-25T14:33:45-05:00,2023-03-18T13:33:50-04:00,,340,15,1499,1299,52457,50938,103395
+commons-compress,rel/commons-compress-1.23.0,rel/commons-compress-1.24.0,2023-03-18T13:33:50-04:00,2023-09-04T08:38:08-04:00,,146,8,471,358,1357,1773,3130
+commons-compress,rel/commons-compress-1.24.0,rel/commons-compress-1.25.0,2023-09-04T08:38:08-04:00,2023-11-12T17:09:27-05:00,,299,6,1109,979,13038,13743,26781
+commons-compress,rel/commons-compress-1.25.0,rel/commons-compress-1.26.0,2023-11-12T17:09:27-05:00,2024-02-17T18:43:57-05:00,,360,11,838,673,6871,4476,11347
+commons-compress,rel/commons-compress-1.26.0,rel/commons-compress-1.26.1,2024-02-17T18:43:57-05:00,2024-03-05T17:15:14-05:00,,102,8,183,128,1846,1740,3586
+commons-compress,rel/commons-compress-1.26.1,rel/commons-compress-1.26.2,2024-03-05T17:15:14-05:00,2024-05-18T15:31:24+00:00,,143,5,228,121,1386,829,2215
+commons-compress,rel/commons-compress-1.26.2,rel/commons-compress-1.27.0,2024-05-18T15:31:24+00:00,2024-08-03T21:39:22+00:00,,153,9,294,215,1603,1243,2846
+commons-compress,rel/commons-compress-1.27.0,rel/commons-compress-1.27.1,2024-08-03T21:39:22+00:00,2024-08-17T00:26:51+00:00,,21,3,30,9,184,81,265
+commons-compress,rel/commons-compress-1.27.1,rel/commons-compress-1.28.0,2024-08-17T00:26:51+00:00,2025-07-26T20:43:38+00:00,,693,14,2621,2187,21615,13633,35248
