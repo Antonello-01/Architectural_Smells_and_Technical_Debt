@@ -1,0 +1,11 @@
+project,tag,commit_hash,commit_date,jdk,note,ordine
+jsoup,jsoup-1.18.3,7c56eb26c8cc772c5c3d0e052dc076a128173c85,2024-12-02T09:39:55+11:00,,auto-selected (last releases),1
+jsoup,jsoup-1.19.1,5c4c09a5cbf1271ceeac32452cbc77d0795b81f9,2025-03-04T15:06:37+11:00,,auto-selected (last releases),2
+jsoup,jsoup-1.20.1,8f0dc293c9c34ef9b7715493a423df88a06bed1d,2025-04-29T15:37:07+10:00,,auto-selected (last releases),3
+jsoup,jsoup-1.21.1,9a059f4be554afaf791ddeb4a2fb7ebba0d6c9cb,2025-06-23T14:43:38+10:00,,auto-selected (last releases),4
+jsoup,jsoup-1.21.2,b02837b6c77b94799c055f8fa446fb770bfb49f1,2025-08-25T09:42:45+10:00,,auto-selected (last releases),5
+jsoup,jsoup-1.22.1,8dd66febe8d5e2221a63f4d1228a2a35df81c148,2026-01-01T13:40:19+11:00,,auto-selected (last releases),6
+jsoup,jsoup-1.22.2,ac28afe6e5bf96d39fd17c3e0a797a7585e1958c,2026-04-20T16:24:46+10:00,,auto-selected (last releases),7
+jsoup,jsoup-1.23.1,bb077a8b0da1203cf11d5139967f0d52fe8f5a59,2026-07-30T13:33:11+10:00,,auto-selected (last releases),8
+jsoup,jsoup-1.23.2,fbc7775c462f5b023d8db54c9a73d7ec17d53300,2026-08-26T10:11:17+10:00,,auto-selected (last releases),9
+jsoup,jsoup-1.24.1,5e3c2843106967cba8ac1b12e6f821518fb2f5d2,2026-11-03T14:21:59+11:00,,auto-selected (last releases),10
