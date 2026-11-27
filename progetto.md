@@ -33,3 +33,7 @@ Clone: git clone [https://github.com/apache/commons-io.git](https://github.com/a
 9. apache/commons-compress (compressione, decompressione e gestione formati d'archivio come tar, zip, 7z, gzip)
 Pagina: [https://github.com/apache/commons-compress](https://github.com/apache/commons-compress)
 Clone: git clone [https://github.com/apache/commons-compress.git](https://github.com/apache/commons-compress.git)
+
+10. jhy/jsoup (parsing HTML, estrazione dati DOM e web scraping in Java)
+Pagina: https://github.com/jhy/jsoup
+Clone: git clone [https://github.com/jhy/jsoup.git](https://github.com/jhy/jsoup.git)
